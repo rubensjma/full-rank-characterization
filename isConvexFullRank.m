@@ -1,4 +1,4 @@
-function [minCond,alphaMin,coneMin,nfevals,unpruned,vstar,Dfinish] = isConvexFullRank(A,maxD,epsilon)
+function [minCond,alphaMin,coneMin,nfevals,unpruned,vstar,v,dimension,w,Dfinish] = isConvexFullRank(A,maxD,epsilon)
 %isConvexSingular Determines if there is a convex combination of given
 %matrices that is singular.
 %   A: cell of N vertices where each vertex is a n by n matrix
@@ -55,9 +55,9 @@ Dfinish = D-1;
 if condition < epsilon
     minCond = condition;
     alphaMin = alpha;
-    vstar = v;
+    vstar = vstar{dimension}{end};
     auxConeMin = unpruned{dimension,Dfinish};
-    coneMin = auxConeMin(1);
+    coneMin = auxConeMin(end);
 else
     minCond = [];
     alphaMin = [];

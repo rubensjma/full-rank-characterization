@@ -69,5 +69,5 @@ n = size(A{1},2); % Dimension
 %% Main routine
 % If all components of Jmin = NaN, then all dimensions have been pruned and
 % there is no convex combination
-[minCond,alphaMin,coneMin,nfevals,unpruned,vstar,Dfinish] = isConvexFullRank(A,maxD,epsilon)
+[minCond,alphaMin,coneMin,nfevals,unpruned,vstar,v,dimension,w,Dfinish] = isConvexFullRank(A,maxD,epsilon)
 save(['example',int2str(example)]);
